@@ -94,7 +94,7 @@
 }
 
 .main-content-inner {
-    padding: 0 30px 50px;
+    padding: 30px;
 }
 
 /*------------------------- END Core Css -------------------*/
@@ -396,14 +396,14 @@
 /*-------------------- 2.2 Header Area -------------------*/
 
 .header-area {
-    padding: 15px 30px;
+    padding: 15px 15px;
     background: #fff;
     border-bottom: 1px solid #d8e3e7;
 }
 
 .nav-btn {
-    margin-right: 30px;
-    margin-top: 10px;
+    margin-left: 5px;
+    margin-top: 0;
     cursor: pointer;
 }
 
@@ -512,7 +512,7 @@
     position: absolute;
     right: -5px;
     top: -7px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Noto Serif JP', sans-serif;
     font-size: 10px;
     font-weight: 600;
     color: #fff;
@@ -656,7 +656,7 @@
     left: 0;
     top: 50%;
     width: 4px;
-    height: 36px;
+    height: 45px;
     background: var(--primary-color);
     -webkit-transform: translateY(-50%);
             transform: translateY(-50%);
@@ -833,7 +833,7 @@ ul.breadcrumbs {
 }
 
 .header-title {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Noto Serif JP', sans-serif;
     font-size: 18px;
     font-weight: 600;
     letter-spacing: 0;
@@ -1893,7 +1893,7 @@ p.card-text {
 }
 
 .pagination li a {
-    font-family: 'lato', sans-serif;
+    font-family: 'Noto Serif JP', sans-serif;
 }
 
 /*-------------------- END Pagination ------------------- */
@@ -1991,7 +1991,7 @@ label {
     color: #444;
     margin: 9px 0;
     display: inline-block;
-    font-family: 'lato', sans-serif;
+    font-family: 'Noto Serif JP', sans-serif;
 }
 
 .fw-icons a:hover {
@@ -2040,7 +2040,7 @@ label {
     color: #444;
     margin: 9px 0;
     display: inline-block;
-    font-family: 'lato', sans-serif;
+    font-family: 'Noto Serif JP', sans-serif;
     -webkit-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
 }
@@ -2278,7 +2278,7 @@ table.dataTable thead td {
     padding: 12px 19px;
     border-radius: 3px;
     text-transform: capitalize;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Noto Serif JP', sans-serif;
     font-weight: 600;
     letter-spacing: 0.03em;
     margin-left: 6px;
@@ -2552,7 +2552,7 @@ table.dataTable thead td {
     color: #fff;
     padding: 28px;
     letter-spacing: 0;
-    font-family: 'lato', sans-serif;
+    font-family: 'Noto Serif JP', sans-serif;
     font-weight: 500;
 }
 
@@ -2623,7 +2623,7 @@ table.dataTable thead td {
     color: #686cdc;
     margin-bottom: 28px;
     text-shadow: -3px -3px 0 #ffffff, 3px -3px 0 #ffffff, -3px 3px 0 #ffffff, 3px 3px 0 #ffffff, 4px 4px 0 #6569dc, 5px 5px 0 #6569dc, 6px 6px 0 #6569dc, 7px 7px 0 #6569dc;
-    font-family: 'lato', sans-serif;
+    font-family: 'Noto Serif JP', sans-serif;
 }
 
 .error-content img {
@@ -2701,7 +2701,7 @@ table.dataTable thead td {
     font-size: 16px;
     color: #444;
     font-weight: 600;
-    font-family: 'lato', sans-serif;
+    font-family: 'Noto Serif JP', sans-serif;
     position: relative;
     padding-bottom: 15px;
 }
@@ -2744,7 +2744,7 @@ table.dataTable thead td {
 }
 
 .offset-settings h4 {
-    font-family: 'lato', sans-serif;
+    font-family: 'Noto Serif JP', sans-serif;
     font-size: 18px;
     letter-spacing: 0;
     font-weight: 700;
@@ -2828,3 +2828,9 @@ table.dataTable thead td {
 }
 
 /*-------------------- END Offset Sidebar ------------------- */
+
+@media (max-width: 768px) {
+    .settings-btn {
+        margin-right: 0 !important;
+    }
+}

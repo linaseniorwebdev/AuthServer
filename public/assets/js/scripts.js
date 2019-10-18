@@ -23,7 +23,7 @@
     ==================================*/
     var e = function() {
         var e = (window.innerHeight > 0 ? window.innerHeight : this.screen.height) - 5;
-        (e -= 67) < 1 && (e = 1), e > 67 && $(".main-content").css("min-height", e + "px")
+        (e -= 67) < 1 && (e = 1), e > 67 && $(".main-content").css("min-height", (e + 72) + "px")
     };
     $(window).ready(e), $(window).on("resize", e);
 
