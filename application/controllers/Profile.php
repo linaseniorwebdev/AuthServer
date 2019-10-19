@@ -16,7 +16,7 @@ class Profile extends CI_Controller {
 
 	public function index() {
 		$this->load->view('header');
-		$this->load->view('sidebar');
+		$this->load->view('sidebar', array('id' => 8));
 		$this->load->view('home/index');
 		$this->load->view('offset');
 		$this->load->view('scripts');

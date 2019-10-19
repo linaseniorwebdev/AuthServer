@@ -15,10 +15,14 @@ class Admin extends CI_Controller {
 
 
 	public function index() {
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('home/index');
-		$this->load->view('offset');
-		$this->load->view('scripts');
+		if ($this->login) {
+			$this->load->view('header');
+			$this->load->view('sidebar', array('id' => 2));
+			$this->load->view('home/index');
+			$this->load->view('offset');
+			$this->load->view('scripts');
+		} else {
+			redirect(base_url('auth') . '?redirect=' . urlencode(base_url('admin')));
+		}
 	}
 }

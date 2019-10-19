@@ -448,8 +448,8 @@ $config['global_xss_filtering'] = TRUE;
 | 'csrf_regenerate' = Regenerate token on every submission
 | 'csrf_exclude_uris' = Array of URIs which ignore CSRF checks
 */
-$config['csrf_protection'] = TRUE;
-$config['csrf_token_name'] = 'Tzenx4h6VFoPKWO';
+$config['csrf_protection'] = FALSE;
+$config['csrf_token_name'] = 'token';
 $config['csrf_cookie_name'] = 'C96v3fOma9TDVkZ';
 $config['csrf_expire'] = 7200;
 $config['csrf_regenerate'] = TRUE;

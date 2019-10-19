@@ -11,37 +11,37 @@
 			<div class="menu-inner">
 				<nav>
 					<ul class="metismenu" id="menu">
-						<li class="active">
+						<li<?php if ($id == 1) echo ' class="active"'; ?>>
 							<a href="<?= base_url('home') ?>"><i class="ti-home"></i> <span>ダッシュボード</span></a>
 						</li>
-						<li>
+						<li<?php if ($id == 2 || $id == 3) echo ' class="active"'; ?>>
 							<a href="javascript:void(0);" aria-expanded="true">
 								<i class="ti-medall"></i><span>管理者</span>
 							</a>
 							<ul class="collapse">
-								<li><a href="<?= base_url('admin/list') ?>">管理者リスト</a></li>
-								<li><a href="<?= base_url('admin/create') ?>">管理者追加</a></li>
+								<li<?php if ($id == 2) echo ' class="active"'; ?>><a href="<?= base_url('admin') ?>">管理者リスト</a></li>
+								<li<?php if ($id == 3) echo ' class="active"'; ?>><a href="<?= base_url('admin/create') ?>">管理者追加</a></li>
 							</ul>
 						</li>
-						<li>
+						<li<?php if ($id == 4 || $id == 5) echo ' class="active"'; ?>>
 							<a href="javascript:void(0);" aria-expanded="true">
 								<i class="ti-key"></i><span>ライセンス</span>
 							</a>
 							<ul class="collapse">
-								<li><a href="<?= base_url('license/list') ?>">ライセンスリスト</a></li>
-								<li><a href="<?= base_url('license/generate') ?>">ライセンス生成</a></li>
+								<li<?php if ($id == 4) echo ' class="active"'; ?>><a href="<?= base_url('license') ?>">ライセンスリスト</a></li>
+								<li<?php if ($id == 5) echo ' class="active"'; ?>><a href="<?= base_url('license/generate') ?>">ライセンス生成</a></li>
 							</ul>
 						</li>
-						<li>
+						<li<?php if ($id == 6 || $id == 7) echo ' class="active"'; ?>>
 							<a href="javascript:void(0);" aria-expanded="true">
 								<i class="ti-user"></i><span>ユーザー</span>
 							</a>
 							<ul class="collapse">
-								<li><a href="<?= base_url('user/list') ?>">ユーザーリスト</a></li>
-								<li><a href="<?= base_url('user/create') ?>">ユーザー追加</a></li>
+								<li<?php if ($id == 6) echo ' class="active"'; ?>><a href="<?= base_url('user') ?>">ユーザーリスト</a></li>
+								<li<?php if ($id == 7) echo ' class="active"'; ?>><a href="<?= base_url('user/create') ?>">ユーザー追加</a></li>
 							</ul>
 						</li>
-						<li>
+						<li<?php if ($id == 8) echo ' class="active"'; ?>>
 							<a href="<?= base_url('profile') ?>"><i class="ti-check-box"></i> <span>プロフィール</span></a>
 						</li>
 						<li>

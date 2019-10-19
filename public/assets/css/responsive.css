@@ -543,7 +543,7 @@
         display: block;
     }
     .sbar_collapsed .sidebar-menu {
-        width: calc(100% - 60px);
+        width: calc(100% - 50px);
         left: 0;
     }
     .minisidebar.main-menu {
@@ -553,7 +553,7 @@
         margin-right: 15px;
         position: fixed;
         z-index: 99;
-        right: 10px;
+        right: 0;
         top: 0;
         background: #303641;
         margin: 0;
