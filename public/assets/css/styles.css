@@ -2837,3 +2837,8 @@ table.dataTable thead td {
         display: none !important;
     }
 }
+
+.card-form {
+    margin: 0 auto;
+    max-width: 600px;
+}

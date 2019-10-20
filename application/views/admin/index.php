@@ -29,17 +29,39 @@
 		<div class="row align-items-center" style="height: 60px;">
 			<div class="col-sm-6">
 				<div class="breadcrumbs-area clearfix">
-					<h4 class="page-title pull-left">Dashboard</h4>
-					<ul class="breadcrumbs pull-left">
-						<li><a href="index.html">Home</a></li>
-						<li><span>Maps</span></li>
-					</ul>
+					<h4 class="page-title pull-left">管理者リスト</h4>
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- page title area end -->
 	<div class="main-content-inner">
+		<div class="text-right mb-3">
+			<a class="btn btn-primary" href="<?= base_url('admin/create') ?>">管理者追加</a>
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<div class="single-table">
+					<div class="table-responsive">
+						<table class="table table-hover text-center" id="admins">
+							<thead class="text-uppercase">
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">管理者名</th>
+								<th scope="col">ステータス</th>
+								<th scope="col">登録日付</th>
+								<th scope="col">変更日付</th>
+								<th scope="col">アクション</th>
+							</tr>
+							</thead>
+							<tbody>
+							
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 <!-- main content area end -->

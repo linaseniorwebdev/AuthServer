@@ -25,9 +25,6 @@ class Admins_model extends CI_Model {
 	 * @return int
 	 */
 	public function add_admin($params) {
-		if (!$params['photo']) {
-			$params['photo'] = 'empty.png';
-		}
 		$this->db->insert('admins', $params);
 		return $this->db->insert_id();
 	}

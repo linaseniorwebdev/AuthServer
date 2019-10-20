@@ -25,9 +25,6 @@ class Users_model extends CI_Model {
 	 * @return int
 	 */
 	public function add_user($params) {
-		if (!$params['photo']) {
-			$params['photo'] = 'empty.png';
-		}
 		$this->db->insert('users', $params);
 		return $this->db->insert_id();
 	}

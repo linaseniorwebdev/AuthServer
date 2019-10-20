@@ -28,8 +28,8 @@
 								<i class="ti-key"></i><span>ライセンス</span>
 							</a>
 							<ul class="collapse">
-								<li<?php if ($id == 4) echo ' class="active"'; ?>><a href="<?= base_url('license') ?>">ライセンスリスト</a></li>
-								<li<?php if ($id == 5) echo ' class="active"'; ?>><a href="<?= base_url('license/generate') ?>">ライセンス生成</a></li>
+								<li<?php if ($id == 4) echo ' class="active"'; ?>><a href="<?= base_url('licenses') ?>">ライセンスリスト</a></li>
+								<li<?php if ($id == 5) echo ' class="active"'; ?>><a href="<?= base_url('licenses/generate') ?>">ライセンス生成</a></li>
 							</ul>
 						</li>
 						<li<?php if ($id == 6 || $id == 7) echo ' class="active"'; ?>>

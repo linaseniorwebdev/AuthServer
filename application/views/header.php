@@ -6,7 +6,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Maps - srtdash</title>
+	<title><?= $title ?>｜認証管理システム</title>
 
 	<link rel="shortcut icon" type="image/png" href="public/assets/images/favicon.png">
 
@@ -22,7 +22,9 @@
     <link rel="stylesheet" href="public/assets/css/typography.css">
     <link rel="stylesheet" href="public/assets/css/default-css.css">
     <link rel="stylesheet" href="public/assets/css/styles.css">
-    <link rel="stylesheet" href="public/assets/css/responsive.css">
+	<link rel="stylesheet" href="public/assets/css/responsive.css">
+
+	<link rel="stylesheet" href="public/assets/css/datatables.min.css">
 
     <script src="public/assets/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>

@@ -25,9 +25,6 @@ class Licenses_model extends CI_Model {
 	 * @return int
 	 */
 	public function add_license($params) {
-		if (!$params['photo']) {
-			$params['photo'] = 'empty.png';
-		}
 		$this->db->insert('licenses', $params);
 		return $this->db->insert_id();
 	}

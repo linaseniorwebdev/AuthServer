@@ -120,7 +120,7 @@
 		</div>
 		<div id="settings" class="tab-pane fade">
 			<div class="offset-settings">
-				<h4>General Settings</h4>
+				<h4>一般設定</h4>
 				<div class="settings-list">
 					<div class="s-settings">
 						<div class="s-sw-title">
@@ -130,7 +130,7 @@
 								<label for="switch1">Toggle</label>
 							</div>
 						</div>
-						<p>Keep it 'On' When you want to get all the notification.</p>
+						<p>すべての通知を表示します。</p>
 					</div>
 				</div>
 			</div>
