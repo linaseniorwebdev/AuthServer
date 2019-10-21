@@ -40,13 +40,13 @@
 			<div class="card-body">
 				<?php echo form_open('admin/create'); ?>
 				<div class="form-group row no-gutters">
-					<label for="example-text-input" class="col-form-label col-md-3 text-right pr-3">管理者名</label>
+					<label for="admin-username" class="col-form-label col-md-3 text-right pr-3">管理者名</label>
 					<div class="col-md-9">
 						<input class="form-control" type="text" value="" id="admin-username" name="username" autofocus required>
 					</div>
 				</div>
 				<div class="form-group row no-gutters">
-					<label for="example-text-input" class="col-form-label col-md-3 text-right pr-3">パスワード</label>
+					<label for="admin-password" class="col-form-label col-md-3 text-right pr-3">パスワード</label>
 					<div class="col-md-9">
 						<input class="form-control" type="password" value="" id="admin-password" name="password" required>
 					</div>

@@ -29,17 +29,34 @@
 		<div class="row align-items-center" style="height: 60px;">
 			<div class="col-sm-6">
 				<div class="breadcrumbs-area clearfix">
-					<h4 class="page-title pull-left">Dashboard</h4>
-					<ul class="breadcrumbs pull-left">
-						<li><a href="index.html">Home</a></li>
-						<li><span>Maps</span></li>
-					</ul>
+					<h4 class="page-title pull-left">ユーザー追加</h4>
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- page title area end -->
 	<div class="main-content-inner">
+		<div class="card card-form">
+			<div class="card-body">
+				<?php echo form_open('user/create'); ?>
+				<div class="form-group row no-gutters">
+					<label for="example-text-input" class="col-form-label col-md-3 text-right pr-3">ユーザー名</label>
+					<div class="col-md-9">
+						<input class="form-control" type="text" value="" id="username" name="username" autofocus required>
+					</div>
+				</div>
+				<div class="form-group row no-gutters">
+					<label for="example-text-input" class="col-form-label col-md-3 text-right pr-3">パスワード</label>
+					<div class="col-md-9">
+						<input class="form-control" type="password" value="" id="password" name="password" required>
+					</div>
+				</div>
+				<div class="text-center">
+					<button type="submit" class="btn btn-primary">確認する</button>
+				</div>
+				<?php echo form_close(); ?>
+			</div>
+		</div>
 	</div>
 </div>
 <!-- main content area end -->

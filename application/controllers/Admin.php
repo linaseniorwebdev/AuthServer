@@ -35,7 +35,25 @@ class Admin extends Base {
 			echo json_encode($output);
 		} elseif ($com == 'update') {
 			$this->load->model('Admins_model');
+			$this->load->model('Logs_model');
 			
+			$id       = $this->input->post('id');
+			$status   = $this->input->post('status');
+			$password = $this->input->post('password');
+			
+			$row = $this->Admins_model->get_by_id($id);
+			
+			if ($status) {
+				$this->Admins_model->update_admin($id, array('status' => $status));
+				
+				if ($status == 1) {
+					$content = '管理者「' . $row['username'] . '」はスーパー管理者によって有効化されています。';
+				} else {
+					$content = '管理者「' . $row['username'] . '」はスーパー管理者によって無効にされました。';
+				}
+			} else {
+				$content = '管理者「A」のパスワードは、スーパー管理者によってリセットされました。';
+			}
 		}
 	}
 

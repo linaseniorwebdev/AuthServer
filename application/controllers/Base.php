@@ -3,15 +3,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Base extends CI_Controller {
 	
-	public $login = false;
+	public $admin = null;
+	public $aname = null;
 	public $level = 0;
+	public $login = false;
 	
 	public function __construct() {
 		parent::__construct();
 		
 		if ($this->session->admin) {
-			$this->login = true;
+			$this->admin = $this->session->admin;
+			$this->aname = $this->session->names;
 			$this->level = (int) $this->session->level;
+			$this->login = true;
 		}
 	}
 	

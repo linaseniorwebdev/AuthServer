@@ -30,6 +30,7 @@ class Auth extends Base {
 							if ($url) {
 								$this->session->set_userdata('admin', $row['id']);
 								$this->session->set_userdata('level', $row['level']);
+								$this->session->set_userdata('names', $row['username']);
 								redirect($url);
 							} else {
 								redirect('home');
@@ -50,6 +51,7 @@ class Auth extends Base {
 	public function logout() {
 		$this->session->unset_userdata('admin');
 		$this->session->unset_userdata('level');
+		$this->session->unset_userdata('names');
 		redirect('/');
 	}
 }

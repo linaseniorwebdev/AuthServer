@@ -25,6 +25,8 @@
 	<link rel="stylesheet" href="public/assets/css/responsive.css">
 
 	<link rel="stylesheet" href="public/assets/css/datatables.min.css">
+	<link rel="stylesheet" href="public/assets/css/sweetalert.css">
+	<link rel="stylesheet" href="public/assets/css/toastr.css">
 
     <script src="public/assets/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
