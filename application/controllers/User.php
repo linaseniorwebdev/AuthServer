@@ -8,7 +8,7 @@ class User extends Base {
 			$this->load->model('Api_model');
 			
 			$this->Api_model->setTable('users');
-			$this->Api_model->setColumnSearch(array('username'));
+			$this->Api_model->setColumnSearch(array('firstname', 'lastname'));
 			
 			$data = array();
 			
@@ -25,9 +25,9 @@ class User extends Base {
 				} else {
 					$license = 0;
 				}
-				$created = date( 'Y.m.d', strtotime($user->created_at));
-				$updated = date( 'Y.m.d', strtotime($user->updated_at));
-				$data[] = array($idx, $user->username, $license, $user->status, $created, $updated, null, $user->id);
+//				$created = date( 'Y.m.d', strtotime($user->created_at));
+//				$updated = date( 'Y.m.d', strtotime($user->updated_at));
+				$data[] = array($idx, $user->firstname . $user->lastname, $user->uniqueid, $license, $user->status, null, $user->id);
 			}
 			
 			$output = array(
@@ -58,14 +58,14 @@ class User extends Base {
 				$this->Users_model->update_user($id, array('status' => $status));
 				
 				if ($status == 1) {
-					$content = 'ユーザー「' . $row['username'] . '」が' . $admin . 'よって有効化されています。';
+					$content = 'ユーザー「' . $row['firstname'] . $row['lastname'] . '」が' . $admin . 'よって有効化されています。';
 				} else {
-					$content = 'ユーザー「' . $row['username'] . '」が' . $admin . 'よって無効にされました。';
+					$content = 'ユーザー「' . $row['firstname'] . $row['lastname'] . '」が' . $admin . 'よって無効にされました。';
 				}
 			} else {
 				$this->Users_model->update_user($id, array('password' => $this->get_hash($password)));
 				
-				$content = 'ユーザー「' . $row['username'] . '」のパスワードが' . $admin . 'よってリセットされました。';
+				$content = 'ユーザー「' . $row['firstname'] . $row['lastname'] . '」のパスワードが' . $admin . 'よってリセットされました。';
 			}
 			
 			$params = array(
@@ -98,9 +98,16 @@ class User extends Base {
 			if ($this->post_exists()) {
 				$this->load->model('Users_model');
 				
+				$firstname = $this->input->post('firstname');
+				$lastname  = $this->input->post('lastname');
+				
+				$uniqueid = md5($firstname . time() . $lastname);
+				
 				$params = array(
-					'username' => $this->input->post('username'),
-					'password' => $this->get_hash($this->input->post('password'))
+					'firstname' => $firstname,
+					'lastname'  => $lastname,
+					'uniqueid'  => $uniqueid,
+					'password'  => $this->get_hash($this->input->post('password'))
 				);
 				
 				$this->Users_model->add_user($params);
@@ -108,7 +115,7 @@ class User extends Base {
 				// Logging...
 				$this->load->model('Logs_model');
 				
-				$content = '新しいユーザー「' . $this->input->post('username') . '」が作成されました。';
+				$content = '新しいユーザー「' . $firstname . $lastname . '」が作成されました。';
 				$params = array(
 					'user' => '1-1',
 					'content' => $content

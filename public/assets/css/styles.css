@@ -1779,7 +1779,7 @@ table.dbkit-table tr td {
 /*-------------------- 10. Badge------------------- */
 
 .btn {
-    padding: 11px 17px;
+    padding: 8.5px 10px;
     font-size: 13px;
     letter-spacing: 0;
 }
@@ -2828,6 +2828,15 @@ table.dataTable thead td {
 
 /*-------------------- END Offset Sidebar ------------------- */
 
+.card-form {
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.col-form-label {
+    text-align: right;
+}
+
 @media (max-width: 768px) {
     .settings-btn {
         margin-right: 0 !important;
@@ -2836,9 +2845,8 @@ table.dataTable thead td {
     #full-view {
         display: none !important;
     }
-}
 
-.card-form {
-    margin: 0 auto;
-    max-width: 600px;
+    .col-form-label {
+        text-align: left;
+    }
 }

@@ -47,11 +47,10 @@
 							<thead class="text-uppercase">
 							<tr>
 								<th scope="col">#</th>
-								<th scope="col">ユーザー名</th>
+								<th scope="col">お名前</th>
+								<th scope="col">ユーザーID</th>
 								<th scope="col">ライセンス</th>
 								<th scope="col">ステータス</th>
-								<th scope="col">登録日付</th>
-								<th scope="col">変更日付</th>
 								<th scope="col">アクション</th>
 							</tr>
 							</thead>

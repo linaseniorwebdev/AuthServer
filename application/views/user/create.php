@@ -39,14 +39,26 @@
 		<div class="card card-form">
 			<div class="card-body">
 				<?php echo form_open('user/create'); ?>
-				<div class="form-group row no-gutters">
-					<label for="example-text-input" class="col-form-label col-md-3 text-right pr-3">ユーザー名</label>
-					<div class="col-md-9">
-						<input class="form-control" type="text" value="" id="username" name="username" autofocus required>
+				<div class="row no-gutters">
+					<div class="col-md-6">
+						<div class="form-group row no-gutters">
+							<label for="firstname" class="col-form-label col-md-6 pr-3">名</label>
+							<div class="col-md-6">
+								<input class="form-control" type="text" value="" id="firstname" name="firstname" autofocus required>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group row no-gutters">
+							<label for="lastname" class="col-form-label col-md-6 pr-3">姓</label>
+							<div class="col-md-6">
+								<input class="form-control" type="text" value="" id="lastname" name="lastname" required>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="form-group row no-gutters">
-					<label for="example-text-input" class="col-form-label col-md-3 text-right pr-3">パスワード</label>
+					<label for="password" class="col-form-label col-md-3 pr-3">パスワード</label>
 					<div class="col-md-9">
 						<input class="form-control" type="password" value="" id="password" name="password" required>
 					</div>

@@ -28,16 +28,21 @@ $(document).ready(function () {
 			{
 				targets: [2],
 				className: 'text-center',
-				render: function(data, type, row) {
-					if (parseInt(data) === 0) {
-						return '<span class="badge badge-secondary">なし</span>';
-					}
-					return '<a href="licenses/view/' + data + '" class="badge badge-primary">BBBBB</a>';
-				},
 				orderable: false
 			},
 			{
 				targets: [3],
+				className: 'text-center',
+				render: function(data, type, row) {
+					if (parseInt(data) === 0) {
+						return '<span class="badge badge-secondary">なし</span>';
+					}
+					return '<a href="licenses/view/' + data + '" class="badge badge-primary">見る</a>';
+				},
+				orderable: false
+			},
+			{
+				targets: [4],
 				className: 'text-center',
 				render: function(data, type, row) {
 					if (parseInt(data) === 1) {
@@ -48,27 +53,17 @@ $(document).ready(function () {
 				orderable: false
 			},
 			{
-				targets: [4],
-				className: 'text-center',
-				orderable: false
-			},
-			{
 				targets: [5],
 				className: 'text-center',
-				orderable: false
-			},
-			{
-				targets: [6],
-				className: 'text-center',
 				render: function(data, type, row) {
-					let buffer = '<input type="hidden" value="' + row[7] + '" />';
-					if (parseInt(row[3]) === 1) {
-						buffer += ('<button type="button" class="btn btn-sm btn-secondary mr-1" onclick="modifyUser(this, ' + row[3] + ')">無効にする</button>');
+					let buffer = '<input type="hidden" value="' + row[6] + '" />';
+					if (parseInt(row[4]) === 1) {
+						buffer += ('<button type="button" class="btn btn-sm btn-secondary mr-1" onclick="modifyUser(this, ' + row[4] + ')">無効にする</button>');
 					} else {
-						buffer += ('<button type="button" class="btn btn-sm btn-success mr-1" onclick="modifyUser(this, ' + row[3] + ')">有効にする</button>');
+						buffer += ('<button type="button" class="btn btn-sm btn-success mr-1" onclick="modifyUser(this, ' + row[4] + ')">有効にする</button>');
 					}
 					buffer += ('<button type="button" class="btn btn-sm btn-primary mr-1" onclick="changePass(this)">パスワード変更</button>');
-					if (parseInt(row[2]) === 0) {
+					if (parseInt(row[3]) === 0) {
 						buffer += ('<button type="button" class="btn btn-sm btn-warning" onclick="generate(this)">ライセンス生成</button>');
 					}
 					return buffer;
@@ -133,9 +128,6 @@ function changePass(obj) {
 
 function generate(obj) {
 	user  = obj.previousElementSibling.previousElementSibling.previousElementSibling.value;
-	console.log(user);
-}
-
-function changePassAction() {
-
+	
+	location.href = "licenses/generate/" + user;
 }
