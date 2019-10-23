@@ -75,7 +75,7 @@ class User extends Base {
 				'content' => $content
 			);
 			
-			$this->Logs_model->add_log($params);
+//			$this->Logs_model->add_log($params);
 			
 			if (isset($_POST['password'])) {
 				redirect('user');
@@ -123,7 +123,7 @@ class User extends Base {
 					'content' => $content
 				);
 				
-				$this->Logs_model->add_log($params);
+//				$this->Logs_model->add_log($params);
 				
 				redirect('user');
 			}

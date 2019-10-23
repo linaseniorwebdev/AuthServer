@@ -97,7 +97,7 @@ class Admin extends Base {
 						'content' => $content
 					);
 					
-					$this->Logs_model->add_log($params);
+//					$this->Logs_model->add_log($params);
 					
 					redirect('admin');
 				}
