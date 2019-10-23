@@ -36,6 +36,48 @@
 	</div>
 	<!-- page title area end -->
 	<div class="main-content-inner">
+		<div class="card">
+			<div class="card-body">
+				<div class="single-table">
+					<div class="table-responsive">
+						<table class="table table-hover text-center" id="users">
+							<tbody>
+							<tr>
+								<td class="text-right">ユーザーID</td>
+								<td class="text-left text-primary"><?= $user['uniqueid']; ?></td>
+							</tr>
+							<tr>
+								<td class="text-right">ライセンス</td>
+								<td class="text-left text-primary"><?= $license['license']; ?></td>
+							</tr>
+							<tr>
+								<td class="text-right">使用期間</td>
+								<?php
+								if ($license['expires']) {
+									$now  = date_create();
+									$new  = date_create($license['expires']);
+									$diff = date_diff($new, $now);
+									$days = $diff->days;
+									if ($now > $new) {
+										echo '<td class="text-left text-danger">期限切れ　　<a href="' . base_url('licenses/extend/' . $license['id']) . '" class="text-success">延期する</a></td>';
+									} else {
+										echo '<td class="text-left text-primary">アクティブ、残り' . $days . '日</td>';
+									}
+								} else {
+									echo '<td class="text-left text-success">無制限</td>';
+								}
+								?>
+							</tr>
+							<tr>
+								<td class="text-right">ユーザー名</td>
+								<td class="text-left text-primary"><?= $user['firstname'] . $user['lastname']; ?></td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 <!-- main content area end -->

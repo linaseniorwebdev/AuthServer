@@ -2850,3 +2850,7 @@ table.dataTable thead td {
         text-align: left;
     }
 }
+
+.table-responsive td {
+    word-break: break-all;
+}

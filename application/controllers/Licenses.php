@@ -43,7 +43,7 @@ class Licenses extends Base {
 					if ($days == '99999') {
 						$expires = null;
 					} else {
-						$expires = date('Y-m-d',strtotime('+' . (((int) $days) / 30) . ' month',strtotime('05/06/2016')));
+						$expires = date('Y-m-d', strtotime('+' . (((int) $days) / 30) . ' month'));
 					}
 					
 					$license = $this->Licenses_model->add_license(array('license' => $license, 'expires' => $expires));
@@ -93,7 +93,7 @@ class Licenses extends Base {
 			$this->load->view('sidebar', array('id' => 4));
 			$this->load->view('license/view', array('user' => $user, 'license' => $license));
 			$this->load->view('offset');
-			$this->load->view('scripts', array('name' => 'license/view'));
+			$this->load->view('scripts');
 		} else {
 			redirect(base_url('auth') . '?redirect=' . urlencode(base_url('licenses/view/' . $id)));
 		}
