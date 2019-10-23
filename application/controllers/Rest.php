@@ -11,7 +11,7 @@ class Rest extends REST_Controller {
 		$license = $this->Licenses_model->get_by_machine($machine);
 
 		if ($license) {
-			$this->response($license, REST_Controller::HTTP_OK);
+			$this->response(['status' => TRUE], REST_Controller::HTTP_OK);
 		} else {
 			$this->response([
 				'status' => FALSE,
