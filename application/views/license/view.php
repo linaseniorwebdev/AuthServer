@@ -51,6 +51,16 @@
 								<td class="text-left text-primary"><?= $license['license']; ?></td>
 							</tr>
 							<tr>
+								<td class="text-right">ステータス</td>
+								<?php
+								if ($license['machine']) {
+									echo '<td class="text-left text-primary">使用中...　　<a href="javascript:remove(\'' . base_url('licenses/unuse/' . $license['id']) . '\');" class="text-danger">設定解除</a></td>';
+								} else {
+									echo '<td class="text-left text-success">使用されていない。</td>';
+								}
+								?>
+							</tr>
+							<tr>
 								<td class="text-right">使用期間</td>
 								<?php
 								if ($license['expires']) {

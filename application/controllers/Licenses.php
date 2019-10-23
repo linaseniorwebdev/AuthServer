@@ -10,6 +10,58 @@ class Licenses extends Base {
 			$seed = $arr[3] . '-' . $arr[0] . '-' . $arr[2] . '-' . $arr[1];
 			$hash = $this->get_hash($seed);
 			echo json_encode(array('hash' => $hash));
+		} elseif ($com === 'list') {
+			$this->load->model('Api_model');
+			$this->load->model('Users_model');
+
+			$this->Api_model->setTable('licenses');
+			$this->Api_model->setColumnSearch(array('license', 'machine'));
+
+			$data = array();
+
+			$_POST['filter_rows'] = array();
+			$_POST['filter_data'] = array();
+
+			$licenses = $this->Api_model->getRows($_POST);
+
+			$idx = (isset($_POST['start'])) ? (int)$_POST['start'] : 0;
+			foreach ($licenses as $license) {
+				$idx++;
+
+				if ($license->machine) {
+					$machine = '使用中...';
+				} else {
+					$machine = '使用されていない';
+				}
+
+				if ($license->expires) {
+					$now  = date_create();
+					$new  = date_create($license->expires);
+					$diff = date_diff($new, $now);
+					$days = $diff->days;
+
+					if ($now > $new) {
+						$expires = '<span class="badge badge-danger">期限切れ</span>';
+					} else {
+						$expires = '<span class="badge badge-success">アクティブ、残り' . $days . '日</span>';
+					}
+				} else {
+					$expires = '<span class="badge badge-primary">無制限</span>';
+				}
+
+				$user = $this->Users_model->get_by_license_id($license->id);
+
+				$data[] = array($idx, $license->license, $machine, $expires, $user['firstname'] . $user['lastname'], null, );
+			}
+
+			$output = array(
+				'draw' => $_POST['draw'],
+				'recordsTotal' => $this->Api_model->countAll(),
+				'recordsFiltered' => $this->Api_model->countFiltered($_POST),
+				'data' => $data,
+			);
+
+			echo json_encode($output);
 		}
 	}
 
@@ -81,21 +133,59 @@ class Licenses extends Base {
 		}
 	}
 	
-	public function view($id) {
+	public function view($id = null) {
 		if ($this->login) {
-			$this->load->model('Licenses_model');
-			$this->load->model('Users_model');
-			
-			$user = $this->Users_model->get_by_license_id($id);
-			$license = $this->Licenses_model->get_by_id($id);
-			
-			$this->load->view('header', array('title' => 'ライセンス生成'));
-			$this->load->view('sidebar', array('id' => 4));
-			$this->load->view('license/view', array('user' => $user, 'license' => $license));
-			$this->load->view('offset');
-			$this->load->view('scripts');
+			if ($id) {
+				$this->load->model('Licenses_model');
+				$this->load->model('Users_model');
+
+				$user = $this->Users_model->get_by_license_id($id);
+				$license = $this->Licenses_model->get_by_id($id);
+
+				$this->load->view('header', array('title' => 'ライセンス生成'));
+				$this->load->view('sidebar', array('id' => 4));
+				$this->load->view('license/view', array('user' => $user, 'license' => $license));
+				$this->load->view('offset');
+				$this->load->view('scripts', array('name' => 'license/view'));
+			} else {
+				$this->output->set_status_header('400', 'Bad Request');
+			}
 		} else {
 			redirect(base_url('auth') . '?redirect=' . urlencode(base_url('licenses/view/' . $id)));
+		}
+	}
+
+	public function extend($id = null) {
+		if ($this->login) {
+			if ($id) {
+				$this->load->model('Licenses_model');
+
+				$expires = date('Y-m-d', strtotime('+3 month'));
+
+				$this->Licenses_model->update_license($id, array('expires' => $expires));
+
+				redirect('licenses/view/' . $id);
+			} else {
+				$this->output->set_status_header('400', 'Bad Request');
+			}
+		} else {
+			redirect(base_url('auth') . '?redirect=' . urlencode(base_url('licenses')));
+		}
+	}
+
+	public function unuse($id = null) {
+		if ($this->login) {
+			if ($id) {
+				$this->load->model('Licenses_model');
+
+				$this->Licenses_model->update_license($id, array('machine' => NULL));
+
+				redirect('licenses/view/' . $id);
+			} else {
+				$this->output->set_status_header('400', 'Bad Request');
+			}
+		} else {
+			redirect(base_url('auth') . '?redirect=' . urlencode(base_url('licenses')));
 		}
 	}
 }

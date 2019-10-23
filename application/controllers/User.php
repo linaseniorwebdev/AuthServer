@@ -20,11 +20,13 @@ class User extends Base {
 			$idx = (isset($_POST['start'])) ? (int)$_POST['start'] : 0;
 			foreach ($users as $user) {
 				$idx++;
+
 				if ($user->license) {
 					$license = $user->license;
 				} else {
 					$license = 0;
 				}
+
 //				$created = date( 'Y.m.d', strtotime($user->created_at));
 //				$updated = date( 'Y.m.d', strtotime($user->updated_at));
 				$data[] = array($idx, $user->firstname . $user->lastname, $user->uniqueid, $license, $user->status, null, $user->id);

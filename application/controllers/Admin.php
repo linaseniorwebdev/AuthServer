@@ -20,8 +20,10 @@ class Admin extends Base {
 			$idx = (isset($_POST['start'])) ? (int)$_POST['start'] : 0;
 			foreach ($admins as $admin) {
 				$idx++;
+
 				$created = date( 'Y.m.d', strtotime($admin->created_at));
 				$modified = date( 'Y.m.d', strtotime($admin->modified_at));
+
 				$data[] = array($idx, $admin->username, $admin->status, $created, $modified, null, $admin->id);
 			}
 			
